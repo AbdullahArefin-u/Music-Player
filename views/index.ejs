@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Music Player</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <!-- Video Background -->
+  <video autoplay muted loop id="background-video">
+    <source src="/background.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <div class="container">
+    <div class="player">
+      <img src="/cd.png" class="cd" alt="Rotating CD">
+      <audio id="audio-player" controls>
+        <source id="audio-source" src="" type="audio/mp3">
+      </audio>
+    </div>
+
+    <div class="song-list">
+      <h2>Songs</h2>
+      <ul id="songs">
+        <% songs.forEach(song => { %>
+          <li><button class="song-button" data-url="<%= song.url %>"><%= song.name %></button></li>
+        <% }) %>
+      </ul>
+    </div>
+  </div>
+
+  <script src="/script.js"></script>
+</body>
+</html>

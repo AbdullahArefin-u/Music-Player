@@ -1,0 +1,120 @@
+/* Basic reset */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden; /* Prevent scrollbars */
+}
+
+/* Background video */
+#background-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the video covers the whole screen */
+  z-index: -1; /* Keeps the video in the background */
+  pointer-events: none; /* Ensures video does not interfere with clicks */
+}
+
+/* Container for content */
+.container {
+  display: flex;
+  background: rgba(0, 0, 0, 0.5); /* Transparent background */
+  padding: 40px;
+  border-radius: 24px;
+  width: 90%;
+  max-width: 1200px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: absolute; /* Position container in the middle */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center the container */
+  z-index: 1; /* Keeps content above video */
+}
+
+.player {
+  flex: 1;
+  margin-right: 40px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cd {
+  width: 180px;
+  height: 180px;
+  margin: 0 auto 25px;
+  border-radius: 50%;
+  animation: spin 5s linear infinite;
+  box-shadow: 0 8px 20px rgb(255, 0, 0);
+  border: 4px solid rgb(255, 0, 0);
+  background: url('https://i.imgur.com/your-cd-image.jpg') center/cover no-repeat;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+audio {
+  width: 100%;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(5px);
+}
+
+.song-list {
+  flex: 1;
+  border-left: 2px solid rgba(255, 255, 255, 0.1);
+  padding-left: 30px;
+  max-height: 400px;
+  overflow-y: auto;
+  color: #fff;
+}
+
+.song-list h2 {
+  margin-top: 0;
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #ffffffcc;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 10px;
+}
+
+.song-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.song-button {
+  background: rgba(0, 0, 0, 0.05);
+  border: none;
+  width: 100%;
+  text-align: left;
+  padding: 12px 20px;
+  font-size: 16px;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.song-button:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: scale(1.02);
+}
+
+.song-button.active {
+  background: rgba(255, 255, 255, 0.25);
+  font-weight: bold;
+  border-left: 4px solid #00ff22;
+  padding-left: 12px;
+}
